@@ -1,0 +1,137 @@
+---
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#050511] text-zinc-100 font-sans antialiased selection:bg-purple-600 selection:text-white relative min-h-screen flex flex-col overflow-x-hidden">
+    
+    <!-- Cosmic Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent_90%)]"></div>
+      <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/20 blur-[150px] rounded-full mix-blend-screen animate-drift"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-600/20 blur-[150px] rounded-full mix-blend-screen animate-drift-reverse"></div>
+    </div>
+
+    <!-- GLOBAL STICKY HEADER -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#050511]/70 border-b border-white/5 transition-all">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 group">
+          <img src="/logo.png" alt="Promlify Logo" class="w-10 h-10 drop-shadow-[0_0_15px_rgba(139,92,246,0.4)] group-hover:scale-105 transition-transform" />
+          <span class="text-xl font-bold tracking-tight text-white font-sans">Promlify.</span>
+        </a>
+        <nav class="hidden md:flex gap-8 text-sm font-medium text-indigo-200/70">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a href="/products" class="hover:text-white transition-colors">Products</a>
+          <a href="/pricing" class="hover:text-white transition-colors">Pricing</a>
+          <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+        </nav>
+        <a href="#" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all">
+          Download App
+        </a>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT GOES HERE -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- GLOBAL PREMIUM FOOTER -->
+    <footer class="relative mt-20 border-t border-white/10 bg-[#050511]/80 backdrop-blur-xl overflow-hidden pt-16 pb-8">
+      <!-- Footer Ambient Glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[100px] bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-fuchsia-600/20 blur-[80px] -z-10"></div>
+      
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
+          <!-- Brand Column -->
+          <div class="md:col-span-1 space-y-6">
+            <div class="flex items-center gap-3">
+              <img src="/logo.png" alt="Promlify Logo" class="w-8 h-8 opacity-90" />
+              <span class="text-lg font-bold tracking-tight text-white font-sans">Promlify.</span>
+            </div>
+            <p class="text-sm text-indigo-200/60 leading-relaxed">
+              Engineering the future of artificial intelligence with localized, zero-latency workflows for creators and enterprises.
+            </p>
+          </div>
+          
+          <!-- Links -->
+          <div>
+            <h4 class="text-white font-semibold mb-4 text-sm tracking-wide">Ecosystem</h4>
+            <ul class="space-y-3 text-sm text-indigo-200/60">
+              <li><a href="/products" class="hover:text-purple-400 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all">AuraPrompt Core</a></li>
+              <li><a href="#" class="hover:text-purple-400 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all">API Access</a></li>
+              <li><a href="#" class="hover:text-purple-400 hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all">Enterprise OS</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-semibold mb-4 text-sm tracking-wide">Company</h4>
+            <ul class="space-y-3 text-sm text-indigo-200/60">
+              <li><a href="/blog" class="hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.8)] transition-all">Engineering Blog</a></li>
+              <li><a href="/pricing" class="hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.8)] transition-all">Pricing</a></li>
+              <li><a href="#" class="hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.8)] transition-all">Careers</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-semibold mb-4 text-sm tracking-wide">Legal</h4>
+            <ul class="space-y-3 text-sm text-indigo-200/60">
+              <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-indigo-200/40">© 2026 Promlify Inc. All rights reserved.</p>
+          <div class="flex gap-4 opacity-50">
+            <!-- Placeholder icons -->
+            <div class="w-5 h-5 rounded-full bg-white/20 hover:bg-white transition-colors cursor-pointer"></div>
+            <div class="w-5 h-5 rounded-full bg-white/20 hover:bg-white transition-colors cursor-pointer"></div>
+            <div class="w-5 h-5 rounded-full bg-white/20 hover:bg-white transition-colors cursor-pointer"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  html { font-family: 'Inter', sans-serif; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  
+  @keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+  .animate-drift { animation: drift 20s infinite ease-in-out; }
+  
+  @keyframes driftReverse {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, 50px) scale(1.1); }
+    66% { transform: translate(20px, -20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+  .animate-drift-reverse { animation: driftReverse 25s infinite ease-in-out; }
+</style>
